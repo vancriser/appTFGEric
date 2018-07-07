@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Detalle del grupo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+      <ion-item>
+        <ion-card-header text-wrap>
+          <div class="card-title"><strong>Nombre del grupo:</strong> {{grupo.name}}</div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="card-title">Listado de alumnos:</div>
+          <br/>
+          <ion-item *ngFor="let alumno of grupo.alumnos">
+            <p>{{alumno.name}}</p>
+          </ion-item>
+        </ion-card-content>
+      </ion-item>
+    </ion-list>
+    
+    <button *ngIf="posibleEliminar == true" ion-button full color="danger" (click)="eliminarGrupo()">Eliminar grupo</button>
+    
+</ion-content>

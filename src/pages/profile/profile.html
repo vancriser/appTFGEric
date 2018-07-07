@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Crea tu perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label floating>Nombre de usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="profile.username" (keyup.enter)="enterButton()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="profile.name" (keyup.enter)="enterButton()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="profile.surname" (keyup.enter)="enterButton()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Rol</ion-label>
+    <ion-select [(ngModel)]="profile.rol" (keyup.enter)="enterButton()">
+      <ion-option value="profesor">Profesor</ion-option>
+      <ion-option value="alumno">Alumno</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-row>
+    <ion-col text-center>
+      <button ion-button full (click)="createProfile()">Crear perfil</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

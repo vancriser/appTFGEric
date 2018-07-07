@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Añadir grupos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+      <ion-item>
+        <ion-label floating>Nombre del grupo</ion-label>
+        <ion-input type="text" [(ngModel)]="grupo.name"></ion-input>
+      </ion-item>
+      <!-- Grid con una lista con todos los usuarios.-->
+      <ion-grid>
+        <ion-row>
+            
+          <ion-list>
+            <ion-item *ngFor="let profile of profiles; let i = index">
+              <ion-label>{{profile.name}}</ion-label>
+              <ion-checkbox color="dark" [(ngModel)]="values[i]" (click)="showMessage($event)"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+          
+        </ion-row>
+      </ion-grid>
+      <button ion-button full (click)="addGroup()">Añadir grupo</button>
+      <!-- <button *ngIf="posibleFinalizar == true" ion-button full (click)="finalizar()">Finalizar práctica</button> -->
+</ion-content>

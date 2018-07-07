@@ -1,0 +1,32 @@
+<ion-header no-border>
+
+  <ion-navbar transparent>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg-image">
+  <h1>Entra</h1>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email" (keyup.enter)="enterButton()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="user.pass" (keyup.enter)="enterButton()"></ion-input>
+    </ion-item>
+    <button ion-button full (click)="signIn()">Entrar</button>
+
+  </ion-list>
+  <ion-row>
+    <ion-col text-center>
+      <button ion-button clear (click)="goToSignup()" color="white">Crear cuenta</button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

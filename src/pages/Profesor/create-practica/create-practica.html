@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Crear práctica</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <ion-item>
+          <ion-label floating>Asignatura</ion-label>
+          <ion-input type="text" [(ngModel)]="practica.asignatura"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label floating>Nombre práctica</ion-label>
+          <ion-input type="text" [(ngModel)]="practica.name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Fecha inicio</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="practica.inicio"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Fecha fin</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="practica.fin"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Información relevante</ion-label>
+          <ion-textarea [(ngModel)]="practica.info"></ion-textarea>
+        </ion-item>
+        <button ion-button full (click)="createPractica()">Crear práctica</button>
+        
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Valoraciones de la práctica</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button full (click)="valoracionGrupos()">Ver valoraciones por grupos</button>
+  <ion-list>
+    <button ion-item *ngFor="let valoracion of valoraciones" (click)="expandItem(item)">
+      <ion-card>
+        <ion-card-header text-wrap>
+          <div class="card-title"><strong>Alumno:</strong> {{valoracion.username}} </div>
+          <p>Nota media de la valoración (sobre 5): {{valoracion.media}}</p>
+          <p>Grupo al que pertenece: {{valoracion.grupoName}}</p>
+        </ion-card-header>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="itemExpanded">
+          <ion-card-content text-wrap>
+          
+            <p>Comunicación: {{valoracion.comunicacion}}</p>
+            <p>Reparto de tareas: {{valoracion.reparto}}</p>
+            <p>Opinión sobre {{valoracion.comp1Name}}: {{valoracion.textComp1}}</p>
+            <p>Valoración {{valoracion.comp1Name}}: {{valoracion.comp1}}</p>
+            <p *ngIf="valoracion.textComp2 != null">Opinión sobre {{valoracion.comp2Name}}: {{valoracion.textComp2}}</p>
+            <p *ngIf="valoracion.comp2 != null">Valoración {{valoracion.comp2Name}}: {{valoracion.comp2}}</p>
+            <p *ngIf="valoracion.textComp3 != null">Opinión sobre el compañero 3: {{valoracion.textComp3}}</p>
+            <p *ngIf="valoracion.comp3 != null">Valoración compañero 3: {{valoracion.comp3}}</p>
+            <p>Normas y tareas claras: {{valoracion.normas}}</p>
+            <p>Cada uno hace su parte: {{valoracion.partes}}</p>
+            <p>Satisfacción: {{valoracion.satisfaccion}}</p>
+            <p>Aceptación de las críticas: {{valoracion.criticas}}</p>
+            <p>Decisiones sencillas: {{valoracion.decisiones}}</p>
+            <p>Está a gusto: {{valoracion.placer}}</p>
+          
+          </ion-card-content>
+        </expandable>
+      </ion-card>
+    </button>
+    <!-- <button (click)="expandItem(item)" ion-item *ngFor="let valoracion of valoraciones" text-wrap>
+      <div class="card-title">Alumno: {{valoracion.username}} </div>
+      <p>Nota media de la valoración (sobre 5): {{valoracion.media}}</p>
+      <br/>
+      <expandable [expandHeight]="itemExpandHeight" [expanded]="itemExpanded">
+        Hello people
+      </expandable>
+    </button> -->
+  </ion-list>
+</ion-content>

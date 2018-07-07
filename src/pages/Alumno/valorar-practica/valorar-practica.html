@@ -1,0 +1,110 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Valorar práctica</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- Opinion equipo -->
+    <ion-item text-wrap><ion-label padding-vertical><strong>Opinión sobre el equipo</strong></ion-label></ion-item>
+    <ion-item text-wrap>
+      <ion-label>Valora la comunicación</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.comunicacion" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item> 
+    <ion-item text-wrap>
+      <ion-label>Valora el reparto de tareas</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.reparto" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item> 
+  <!-- Opinión sobre compañeros -->
+    <ion-item text-wrap><ion-label padding-vertical><strong>Opinión sobre tus compañeros</strong></ion-label></ion-item>
+    <ion-item text-wrap *ngIf="unCompanero == true">    
+        <ion-label floating>¿Qué opinas de {{alumnosDelGrupo[0].name}}? No olvides el nombre del compañero (Max. 50 carácteres)</ion-label>
+        <ion-textarea maxlength="50" [(ngModel)]="valoracion.textComp1"></ion-textarea>
+      </ion-item>
+    <ion-item text-wrap *ngIf="unCompanero == true">
+      <ion-label>¿Volverías a trabajar con este compañero?</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.comp1" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item> 
+    <ion-item text-wrap *ngIf="dosCompaneros == true">    
+        <ion-label floating>¿Qué opinas de {{alumnosDelGrupo[1].name}}? No olvides el nombre del compañero (Max. 50 carácteres)</ion-label>
+        <ion-textarea maxlength="50" [(ngModel)]="valoracion.textComp2"></ion-textarea>
+      </ion-item>
+    <ion-item text-wrap *ngIf="dosCompaneros == true">
+      <ion-label>¿Volverías a trabajar con este compañero?</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.comp2" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item> 
+    <ion-item text-wrap *ngIf="tresCompaneros == true">    
+        <ion-label floating>¿Qué opinas de {{alumnosDelGrupo[2].name}}? No olvides el nombre del compañero (Max. 50 carácteres)</ion-label>
+        <ion-textarea maxlength="50" [(ngModel)]="valoracion.textComp3"></ion-textarea>
+      </ion-item>
+    <ion-item text-wrap *ngIf="tresCompaneros == true">
+      <ion-label>¿Volverías a trabajar con este compañero?</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.comp3" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item> 
+  <!-- Otras preguntas -->
+    <ion-item text-wrap><ion-label padding-vertical><strong>Valora las siguientes afirmaciones según el grado en que estés de acuerdo con ellas.</strong></ion-label></ion-item>
+    <ion-item text-wrap>
+      <ion-label>Están habiendo normas y tareas claras para todos.</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.normas" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item> 
+    <ion-item text-wrap>
+      <ion-label>Cada miembro está haciendo su parte del trabajo.</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.partes" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label>Estoy satisfecho con el trabajo realizado por el grupo.</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.satisfaccion" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item> 
+    <ion-item text-wrap>
+      <ion-label>Los miembros aceptan las críticas de forma positiva.</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.criticas" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label>Es fácil llegar a decisiones dentro del grupo.</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.decisiones" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label>Estoy a gusto trabajando en este equipo.</ion-label>
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="valoracion.placer" color="dark">
+        <ion-icon range-left small color="dark" name="sad"></ion-icon>
+        <ion-icon range-right color="dark" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item>   
+  <!-- Botón -->
+    <button ion-button full (click)="addValoracion()">Añadir valoración</button>
+
+</ion-content>

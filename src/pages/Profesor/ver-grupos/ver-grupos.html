@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Grupos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let grupo of grupos" (click)="verGrupoDetalle(grupo)">
+      <ion-card-header text-wrap>
+        <div class="card-title"><strong>Nombre del grupo:</strong> {{grupo.name}}
+          <!-- <button ion-button clear icon-only small padding (click)="editarGrupo()">
+            <ion-icon name="create" item-start></ion-icon>
+          </button>
+          <button ion-button clear icon-only small (click)="eliminarGrupo($event)">
+            <ion-icon name="trash" item-start></ion-icon>
+          </button> -->
+        </div>
+      </ion-card-header>
+    </button>
+  </ion-list>
+  <button *ngIf="posibleAnyadir == true" ion-button full (click)="goToAddGroup()">Añadir grupo</button>
+  <button *ngIf="posibleFinalizar == true" ion-button full (click)="finalizar()">Crear práctica</button>
+</ion-content>

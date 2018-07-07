@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Histórico de prácticas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let practicaActiva of practicasIntermedias" (click)="verDetalle(practicaActiva)">
+      <ion-card>
+        <ion-card-header text-wrap>
+          <div class="card-title"><strong>Asignatura:</strong> {{practicaActiva.asignatura}}</div>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="card-title">Práctica: {{practicaActiva.name}}</div>
+        </ion-card-content>
+      </ion-card>
+    </button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Detalles de la práctica</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Asignatura</ion-label>
+    <ion-input [readonly]="isReadonly()" type="text" [(ngModel)]="recvData.asignatura"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input [readonly]="isReadonly()" type="text" [(ngModel)]="recvData.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Inicio</ion-label>
+    <ion-datetime [disabled]="isReadonly()" type="text" [(ngModel)]="recvData.inicio"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Fin</ion-label>
+    <ion-datetime [disabled]="isReadonly()" type="text" [(ngModel)]="recvData.fin"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Información relevante</ion-label>
+    <ion-textarea [readonly]="isReadonly()" type="text" [(ngModel)]="recvData.info"></ion-textarea>
+  </ion-item>
+  <button *ngIf="profesor == true" ion-button full (click)="verGrupos()">Ver grupos</button>
+  <button *ngIf="profesor == true" ion-button full (click)="verValoraciones()">Ver valoraciones</button>
+  <button *ngIf="activa == true" ion-button full (click)="editarPractica()">Editar</button>
+  <button *ngIf="activa == true" ion-button full color="danger" (click)="eliminarPractica()">Eliminar</button>
+  <button *ngIf="valorar == true" ion-button full (click)="valorarPractica(recvData)">Valorar</button>
+  <button *ngIf="valorar == false && profesor == false" ion-button full color="disabled" style="color:rgb(105, 105, 105)">Valorar</button>
+
+</ion-content>
